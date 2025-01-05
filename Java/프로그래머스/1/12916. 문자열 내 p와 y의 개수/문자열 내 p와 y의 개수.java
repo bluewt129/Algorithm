@@ -1,26 +1,19 @@
 class Solution {
     boolean solution(String s) {
-        boolean answer = true;
-        boolean f = false;
-        int psum = 0;
-        int ysum = 0;
-        
-        String lows = s.toLowerCase();
-        
-        String[] sarr = lows.split("");
-        
-        for(int i=0; i<s.length(); i++){
-            if(sarr[i].equals("p")){
-                psum++;
-            }
-            if(sarr[i].equals("y")){
-                ysum++;
-            }
+        String str = s.toLowerCase();
+
+        if (!str.contains("p") && !str.contains("y")) {
+            return true;
         }
-        
-        if(psum == ysum){
-            return answer;
+
+        int pcnt = 0;
+        int ycnt = 0;
+
+        for (char c : str.toCharArray()) {
+            if (c == 'p') pcnt++;
+            if (c == 'y') ycnt++;
         }
-        return f;
+        return pcnt == ycnt;
     }
+    
 }
